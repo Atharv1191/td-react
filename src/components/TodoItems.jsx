@@ -5,21 +5,19 @@ import delete_icon from '../assets/delete.png';
 
 const TodoItems = ({ text, id, isComplete, deleteTodo, toggle }) => {
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-between bg-gray-100 p-4 sm:p-3 rounded-lg shadow-sm hover:shadow-md transition-shadow mb-4 sm:mb-2">
+    <div className="flex items-center justify-between bg-gray-100 p-4 rounded-md shadow-sm hover:shadow-lg transition-shadow mb-3">
       {/* Toggle Completion */}
       <div
-        className="flex items-center cursor-pointer mb-3 sm:mb-0"
+        className="flex items-center cursor-pointer flex-grow"
         onClick={() => toggle(id)}
       >
         <img
-          className="w-7 sm:w-6"
+          className="w-6 h-6"
           src={isComplete ? tick : not_tick}
           alt={isComplete ? 'Completed' : 'Not Completed'}
         />
         <p
-          className={`text-gray-700 ml-4 text-lg sm:text-[17px] ${
-            isComplete ? 'line-through text-gray-500' : ''
-          } break-words`}
+          className={`text-gray-700 ml-4 text-[15px] ${isComplete ? 'line-through text-gray-500' : ''}`}
         >
           {text}
         </p>
@@ -32,7 +30,7 @@ const TodoItems = ({ text, id, isComplete, deleteTodo, toggle }) => {
             deleteTodo(id);
           }
         }}
-        className="cursor-pointer w-6 sm:w-5 hover:scale-110 transition-transform"
+        className="cursor-pointer w-6 h-6 ml-4 transform hover:scale-110 transition-transform"
         src={delete_icon}
         alt="Delete"
       />
